@@ -33,7 +33,7 @@ server.use(function*(next) {
 					"code" : parseInt(error[errorField]["message"],10)
 				});
 			}
-			this.body = errorBody;	
+			this.body = errorBody;
 		}
 	}
 });
