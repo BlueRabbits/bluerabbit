@@ -19,7 +19,7 @@ module.exports = {
 	output: {
 		path: __dirname,
 		pathinfo: true,
-		filename: 'app.js',
+		filename: 'Root.js',
 		publicPath: '/',
 	},
 

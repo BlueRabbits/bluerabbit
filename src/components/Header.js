@@ -1,35 +1,31 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavItem, Header, Brand } from 'react-bootstrap';
+import { Nav, Navbar, NavItem, Header, Brand, FormGroup, FormControl, Button } from 'react-bootstrap';
 // import AuthActions from '../actions/AuthActions';
 // import AuthStore from '../stores/AuthStore';
 
 class HeaderComponent extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       authenticated: false
     }
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
+    // this.login = this.login.bind(this);
+    // this.logout = this.logout.bind(this);
   }
 
   login() {
     // We can call the show method from Auth0Lock,
     // which is passed down as a prop, to allow
     // the user to log in
-    this.props.lock.show((err, profile, token) => {
-      if (err) {
-        alert(err);
-        return;
-      }
-      // this.setState({authenticated: true});
-    });
+
   }
 
   logout() {
     // AuthActions.logUserOut();
-    // this.setState({authenticated: false});
+     this.setState({
+
+     });
   }
 
   render() {
@@ -37,14 +33,20 @@ class HeaderComponent extends Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">React Contacts</a>
+            <a href="#">Brand</a>
           </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Header>
-        <Nav>
-          <NavItem onClick={this.login}>Login</NavItem>
-          <NavItem onClick={this.logout}>Logout</NavItem>
-        </Nav>
-      </Navbar>
+        <Navbar.Collapse>
+            <Navbar.Form pullLeft>
+              <FormGroup>
+                <FormControl type="text" placeholder="Search" />
+              </FormGroup>
+
+              <Button type="submit">Submit</Button>
+            </Navbar.Form>
+        </Navbar.Collapse>
+  </Navbar>
     );
   }
 }

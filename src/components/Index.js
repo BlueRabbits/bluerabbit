@@ -3,20 +3,18 @@ import React, { Component } from 'react';
 
 class IndexComponent extends Component {
 
-  constructor() {
-    super();
-    // this.state = {
-    //   authenticated: AuthStore.isAuthenticated()
-    // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      
+    }
   }
   render() {
     return (
       <div>
-        { !this.state.authenticated ? (
-          <h2>Log in to view contact details</h2>
-        ) : (
+
           <h2>Click on a contact to view their profile</h2>
-        )}
+
       </div>
     );
   }
