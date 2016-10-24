@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import { Nav, Navbar, NavItem, Header, Brand, FormGroup, FormControl, Button } from 'react-bootstrap';
+import React, { Component, PropTypes } from 'react';
+import { Nav, Navbar, NavItem, Header, FormControl, Button, NavDropdown, MenuItem } from 'react-bootstrap';
+
 // import AuthActions from '../actions/AuthActions';
 // import AuthStore from '../stores/AuthStore';
+import linkState from 'react-link-state';
 
 class HeaderComponent extends Component {
 
@@ -18,6 +20,7 @@ class HeaderComponent extends Component {
     // We can call the show method from Auth0Lock,
     // which is passed down as a prop, to allow
     // the user to log in
+    
 
   }
 
@@ -30,23 +33,27 @@ class HeaderComponent extends Component {
 
   render() {
     return (
-      <Navbar>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="#">Brand</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-            <Navbar.Form pullLeft>
-              <FormGroup>
-                <FormControl type="text" placeholder="Search" />
-              </FormGroup>
-
-              <Button type="submit">Submit</Button>
-            </Navbar.Form>
-        </Navbar.Collapse>
+<div>
+  <h1>hello</h1>
+  <Navbar>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="#">React-Bootstrap</a>
+      </Navbar.Brand>
+    </Navbar.Header>
+    <Nav>
+      <NavItem eventKey={1} href="#">Link</NavItem>
+      <NavItem eventKey={2} href="#">Link</NavItem>
+      <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+        <MenuItem eventKey={3.1}>Action</MenuItem>
+        <MenuItem eventKey={3.2}>Another action</MenuItem>
+        <MenuItem eventKey={3.3}>Something else here</MenuItem>
+        <MenuItem divider />
+        <MenuItem eventKey={3.3}>Separated link</MenuItem>
+      </NavDropdown>
+    </Nav>
   </Navbar>
+</div>
     );
   }
 }
