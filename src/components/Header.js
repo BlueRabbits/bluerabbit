@@ -15,12 +15,15 @@ class HeaderComponent extends Component {
     // this.login = this.login.bind(this);
     // this.logout = this.logout.bind(this);
   }
+  componentWillMount(){
+    
+  }
 
   login() {
     // We can call the show method from Auth0Lock,
     // which is passed down as a prop, to allow
     // the user to log in
-    
+
 
   }
 
