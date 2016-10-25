@@ -1,16 +1,21 @@
-# Blue Rabbit Framework
+# react-webpack-setup
+React Redux Webpack Babel Koa setup for kickstarting project in no time
+
+> This repo is for those who doesn't want to mess up with react webpack babel setup. This app does it for you. You start writing your application logic starting from "App.js"
 
 **Libraries used**
 
 1. [React](https://facebook.github.io/react/) v15.2
-2. [Webpack](https://webpack.github.io/) v1.13.2
-3. [Webpack dev server](https://github.com/webpack/webpack-dev-server) v1.16.1
-4. [Babel](http://babeljs.io/) v 6^
-5. [koa](http://koajs.com/) v1.2
+2. [Redux](http://redux.js.org/) v3.6
+3. [React-Router](https://github.com/ReactTraining/react-router) v2.8
+4. [Webpack](https://webpack.github.io/) v1.13.2
+5. [Webpack dev server](https://github.com/webpack/webpack-dev-server) v1.16
+6. [Babel](http://babeljs.io/) v 6^
+7. [koa](http://koajs.com/) v1.2
 
 **Instructions**
 
-1. clone the repo: ```git clone https://github.com/BlueRabbits/bluerabbit.git```
+1. clone the repo: ```git clone https://github.com/shek8034/react-webpack-setup.git```
 
 2. Run ```npm install```
 
@@ -25,8 +30,12 @@
 
 **Notes**
 
-We will be building the framework and looking forward to build an awesome framework
+I will keep updating this repo and will try to make it more resuable.
+
+**Contributions**
+
+Contributions are welcome and if someone wants to add something to the repo and improve it, please go ahead and raise PR or write to me ```shekhar.mnnit10@gmail.com```
 
 **LICENSE**
 
-Apache License
+MIT

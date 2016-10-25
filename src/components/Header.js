@@ -1,30 +1,31 @@
 import React, { Component, PropTypes } from 'react';
 import { Nav, Navbar, NavItem, Header, FormControl, Button, NavDropdown, MenuItem } from 'react-bootstrap';
-
+import fetchNavigationMenu from '../actions/HeaderGetActions';
+import { connect } from 'react-redux';
 // import AuthActions from '../actions/AuthActions';
 // import AuthStore from '../stores/AuthStore';
-import linkState from 'react-link-state';
+// import linkState from 'react-link-state';
 
 class HeaderComponent extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      authenticated: false
+
     }
     // this.login = this.login.bind(this);
     // this.logout = this.logout.bind(this);
   }
   componentWillMount(){
-    
+     this.props.dispatch(fetchNavigationMenu());
   }
 
-  login() {
+  navMenu() {
     // We can call the show method from Auth0Lock,
     // which is passed down as a prop, to allow
     // the user to log in
 
-
+console.log(this.props.headerGet.posts);
   }
 
   logout() {
@@ -33,11 +34,18 @@ class HeaderComponent extends Component {
 
      });
   }
+//    handleSelect(selectedKey) {
+//   alert('selected ' + selectedKey);
+// }
 
   render() {
+    // var indents = [];
+    // for (var i = 0; i < this.props.headerGet.posts; i++) {
+    //     indents.push(<span className='indent' key={i}></span>);
+    //   }
+
     return (
 <div>
-  <h1>hello</h1>
   <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
@@ -56,9 +64,27 @@ class HeaderComponent extends Component {
       </NavDropdown>
     </Nav>
   </Navbar>
+      {
+           this.props.headerGet.posts.map(function(category) {
+               return <li key={category}>{category}</li>
+           })
+       }
+
+  <Nav bsStyle="pills" stacked activeKey={1} >
+  <NavItem eventKey={1} href="/home">Nav1</NavItem>
+  <NavItem eventKey={2} title="Item">NavItem 2 content</NavItem>
+  <NavItem eventKey={3} disabled>NavItem 3 content</NavItem>
+  </Nav>
 </div>
     );
   }
 }
 
-export default HeaderComponent;
+function mapStateToProps(state) {
+    return {
+        headerGet: state.headerGet
+    }
+}
+
+export default connect(mapStateToProps)(HeaderComponent);
+ //export default HeaderComponent;

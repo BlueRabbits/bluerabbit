@@ -1,8 +1,3 @@
-.sass-cache
-.DS_Store
-npm-debug.log
+dist/
 node_modules/
-zip/
-bower_components/
-build/
-debug.log
+npm-debug.log

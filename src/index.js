@@ -1,20 +1,25 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.scss';
-// // import Routes from './Routes';
-// import { browserHistory } from 'react-router';
-//
-// //ReactDOM.render(<App />, document.getElementById('app'));
-// ReactDOM.render(<Root history={browserHistory} />, document.getElementById('root'));
-
-
-
-
+/**
+ * Entry point
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { browserHistory } from 'react-router';
-import Root from './Root';
-import './index.scss';
+import { Provider } from 'react-redux';
+import { Router, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux'
+import configureStore from './store';
 
-// Render the main component into the dom
-ReactDOM.render(<Root history={browserHistory} />, document.getElementById('app'));
+// Base stylesheet
+import './styles/index.scss'
+// Import Routes
+import routes from './routes';
+
+const store = configureStore(browserHistory, {});
+const history = syncHistoryWithStore(browserHistory, store);
+
+ReactDOM.render(
+    <Provider store = {store} key="provider">
+        <Router history={history}>
+            {routes()}
+        </Router>
+    </Provider>, document.getElementById('root')
+);
