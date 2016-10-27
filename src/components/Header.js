@@ -10,9 +10,10 @@ class HeaderComponent extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
 
-    }
+    this.state = {
+    fullName: `${props.firstName} ${props.lastName}`
+  };
     // this.login = this.login.bind(this);
     // this.logout = this.logout.bind(this);
   }
@@ -26,25 +27,34 @@ class HeaderComponent extends Component {
     // the user to log in
 
 console.log(this.props.headerGet.posts);
+{this.props.headerGet.posts.map(this.render)}
   }
 
   logout() {
     // AuthActions.logUserOut();
-     this.setState({
-
-     });
+    this.props.headerGet.posts.map(this.render);
   }
 //    handleSelect(selectedKey) {
 //   alert('selected ' + selectedKey);
 // }
 
-  render() {
-    // var indents = [];
-    // for (var i = 0; i < this.props.headerGet.posts; i++) {
-    //     indents.push(<span className='indent' key={i}></span>);
-    //   }
 
-    return (
+
+
+  render() {
+
+    var stationsArr = []
+    for (var i = 0; i < this.props.headerGet.posts.length; i++) {
+      var fullName = this.props.headerGet.posts[i];
+      var categoryName = fullName.category;
+console.log(fullName);
+console.log(fullName.category);
+    }
+
+
+
+return(
+
 <div>
   <Navbar>
     <Navbar.Header>
@@ -64,14 +74,13 @@ console.log(this.props.headerGet.posts);
       </NavDropdown>
     </Nav>
   </Navbar>
-      {
-           this.props.headerGet.posts.map(function(category) {
-               return <li key={category}>{category}</li>
-           })
-       }
+
+
+
+
 
   <Nav bsStyle="pills" stacked activeKey={1} >
-  <NavItem eventKey={1} href="/home">Nav1</NavItem>
+  <NavItem eventKey={1} href="/home">Nav1 {categoryName}</NavItem>
   <NavItem eventKey={2} title="Item">NavItem 2 content</NavItem>
   <NavItem eventKey={3} disabled>NavItem 3 content</NavItem>
   </Nav>
