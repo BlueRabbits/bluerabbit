@@ -14,9 +14,8 @@ class HeaderComponent extends Component {
     this.state = {
     fullName: `${props.firstName} ${props.lastName}`
   };
-    // this.login = this.login.bind(this);
-    // this.logout = this.logout.bind(this);
   }
+
   componentWillMount(){
      this.props.dispatch(fetchNavigationMenu());
   }
@@ -47,8 +46,9 @@ console.log(this.props.headerGet.posts);
     for (var i = 0; i < this.props.headerGet.posts.length; i++) {
       var fullName = this.props.headerGet.posts[i];
       var categoryName = fullName.category;
-console.log(fullName);
-console.log(fullName.category);
+      var subCategory = fullName.subCategory;
+      console.log(fullName);
+      console.log(fullName.category);
     }
 
 
@@ -74,13 +74,13 @@ return(
       </NavDropdown>
     </Nav>
   </Navbar>
-
-
-
-
-
   <Nav bsStyle="pills" stacked activeKey={1} >
-  <NavItem eventKey={1} href="/home">Nav1 {categoryName}</NavItem>
+  <NavItem eventKey={1} href="/home">{categoryName}</NavItem>
+  <Nav bsStyle="pills" stacked>{categoryName}
+           <NavItem title="Sub Item 1">{subCategory}</NavItem>
+           <NavItem title="Sub Item 2">Sub Item 2</NavItem>
+           <NavItem title="Sub Item 3">Sub Item 3</NavItem>
+       </Nav>
   <NavItem eventKey={2} title="Item">NavItem 2 content</NavItem>
   <NavItem eventKey={3} disabled>NavItem 3 content</NavItem>
   </Nav>
